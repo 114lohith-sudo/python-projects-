@@ -1,0 +1,13 @@
+grades = {}
+sub1 = input("Enter a subject: ")
+marks1 = input("Enter your marks for the subject: ")
+sub2 = input("Enter another subject: ")
+marks2 = input("Enter your marks for that subject: ")
+sub3 = input("Enter another subject: ")
+marks3 = input("Enter your marks for that subject: ")
+sub4 = input("Enter another subject: ")
+marks4 = input("Enter your marks for that subject: ")
+sub5 = input("Enter another subject: ")
+marks5 = input("Enter your marks for that subject: ")
+grades.update({sub1:marks1 , sub2:marks2 , sub3:marks3 , sub4:marks4 , sub5:marks5})
+print(grades)
