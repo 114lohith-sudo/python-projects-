@@ -14,24 +14,37 @@ total_time=0
 end_time=0
 
 def create_stars():
+    #Need to globalize valiables if they need to be used in other funtions
+    #Globalizing start_time so it can be used in other functions
     global start_time
     for count in range(num_stars):
+        #Actor is used to maken charecters/sprites with images
         star=Actor("star")
         star.pos=(randint(50,WIDTH-50),randint(50,HEIGHT-50))
         stars.append(star)
+    #time function from the library time gives you the current time 
     start_time=time()
 
-number=1
 def draw():
-    global number
+    number=1
+    global total_time
+    #screen.blit is used to draw the background
     screen.blit("space",(0,0))
+    #this for loop is made to draw a nnumber for each star
     for star in stars:
+        #index of x is 0 and index of y is 1 
         screen.draw.text(str(number),(star.pos[0]),star.pos[1]+30)
-        number+=1
         star.draw()
+        number+=1
 
     for line in lines:
         screen.draw.line(line[0],line[1],"red")
+    
+    if next_star<num_stars:
+        total_time=time()-start_time
+        screen.draw.text(str(total_time),(300,10),fontsize=30)
+    else:
+        screen.draw.text(str(total_time),(300,10),fontsize=30)
     
 def on_mouse_down(pos):
     global next_star,lines,num_stars
