@@ -7,6 +7,7 @@ HEIGHT=400
 stars=[]
 num_stars=5
 lines=[]
+#So we can know the next star when doing the connections
 next_star=0
 
 start_time=0
@@ -17,6 +18,7 @@ def create_stars():
     #Need to globalize valiables if they need to be used in other funtions
     #Globalizing start_time so it can be used in other functions
     global start_time
+    #Adds stars to the list of stars based on the number in num_stars
     for count in range(num_stars):
         #Actor is used to maken charecters/sprites with images
         star=Actor("star")
