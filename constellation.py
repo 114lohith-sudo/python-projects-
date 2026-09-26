@@ -35,7 +35,7 @@ def draw():
     #this for loop is made to draw a nnumber for each star
     for star in stars:
         #index of x is 0 and index of y is 1 
-        screen.draw.text(str(number),(star.pos[0]),star.pos[1]+30)
+        screen.draw.text(str(number),(star.pos[0],star.pos[1]+30))
         star.draw()
         number+=1
 
@@ -44,14 +44,15 @@ def draw():
     
     if next_star<num_stars:
         total_time=time()-start_time
-        screen.draw.text(str(total_time),(300,10),fontsize=30)
+        screen.draw.text(str(round(total_time,1)),(300,10),fontsize=30)
     else:
-        screen.draw.text(str(total_time),(300,10),fontsize=30)
+        screen.draw.text(str(round(total_time,1)),(300,10),fontsize=30)
     
 def on_mouse_down(pos):
     global next_star,lines,num_stars
+    x,y=pos
     if next_star<num_stars:
-        if stars[next_star].collidepoint(pos):
+        if stars[next_star].collidepoint(x,y):
             if next_star > 0:
                 lines.append((stars[next_star-1].pos,stars[next_star].pos))
             next_star+=1
