@@ -40,7 +40,7 @@ def draw():
         number+=1
 
     for line in lines:
-        screen.draw.line(line[0],line[1],"red")
+        screen.draw.line(line[0],line[1],(255,0,0))
     
     if next_star<num_stars:
         total_time=time()-start_time
@@ -51,8 +51,10 @@ def draw():
 def on_mouse_down(pos):
     global next_star,lines,num_stars
     if next_star<num_stars:
-        lines.append(stars[next_star-1].pos,stars[next_star].pos)
-        next_star+=1
+        if stars[next_star].collidepoint(pos):
+            if next_star > 0:
+                lines.append((stars[next_star-1].pos,stars[next_star].pos))
+            next_star+=1
     else:
         lines=[]    
         next_star=0
